@@ -41,7 +41,7 @@ const AboutSection = ({ registerSection }) => {
     },
     {
       name: "Tools",
-      skills: ["Linux", "Git", "GitHub", "GitLab"],
+      skills: ["Linux", "Git", "GitHub", "GitLab", "CI/CD", "GitHub Actions"],
       color: "from-gray-500 to-slate-500",
       icon: "🛠️"
     }
