@@ -64,7 +64,7 @@ const ProjectsSection = ({ registerSection }) => {
       website: "https://amaanchau.com",
       github: "https://github.com/amaanchau/portfolio",
       demo: null
-    }
+    },
     {
       title: "Rev's Grille – Cloud-Based POS System",
       subtitle: "Point-of-Sale System with Real-time Analytics",
