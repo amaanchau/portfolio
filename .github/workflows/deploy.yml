@@ -18,13 +18,12 @@ jobs:
           cache: "npm"
           cache-dependency-path: my-portfolio/package-lock.json
 
-      - name: Change to my-portfolio directory
-        run: cd my-portfolio
-
       - name: Install dependencies
+        working-directory: ./my-portfolio
         run: npm install
 
       - name: Build
+        working-directory: ./my-portfolio
         run: npm run build
 
       - name: Configure AWS credentials
@@ -35,6 +34,7 @@ jobs:
           aws-region: us-east-1 # Change to your AWS region
 
       - name: Deploy to S3
+        working-directory: ./my-portfolio
         run: aws s3 sync dist/ s3://amaanchau.com --delete
 
       - name: Invalidate CloudFront
