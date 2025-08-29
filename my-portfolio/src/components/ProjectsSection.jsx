@@ -136,10 +136,10 @@ const ProjectsSection = ({ registerSection }) => {
       subtitle: "React-based Professional Portfolio",
       description: [
         "A modern, responsive portfolio website built with React and Tailwind CSS, featuring smooth animations and interactive sections",
-        "Professional design that showcases skills, experience, and projects with seamless transitions and parallax effects",
+        "Deployed on AWS infrastructure using CloudFront for global content delivery, S3 for static website hosting, and Route53 for DNS management",
         "Intuitive user experience with optimized performance and accessibility across all devices"
       ],
-      tech: ["React", "Tailwind CSS", "JavaScript", "Vite", "Responsive Design"],
+      tech: ["React", "Tailwind CSS", "JavaScript", "Vite", "AWS CloudFront", "AWS S3", "Route53", "Responsive Design"],
       image: portfolioImage,
       period: "Aug 2025",
       date: "2025",
