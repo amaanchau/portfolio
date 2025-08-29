@@ -1,26 +1,34 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Calendar, MapPin, ExternalLink } from 'lucide-react';
+import statefarmLogo from '../assets/statefarm-logo.png';
+import tamuLogo from '../assets/tamu-logo.png';
+import usaaLogo from '../assets/usaa-logo.png';
+import ciceroLogo from '../assets/cicero.jpg';
+import awsLogo from '../assets/aws-logo.png';
 
 const ExperienceSection = ({ registerSection }) => {
   const sectionRef = useRef(null);
   const [scrollY, setScrollY] = useState(0);
   const experiences = [
     {
+      title: "Software Engineer",
       company: "State Farm",
-      position: "Software Engineer",
-      duration: "May 2025 – Present",
+      period: "May 2025– Present",
       location: "Remote",
-      logo: "./src/assets/statefarm-logo.png",
+      logo: statefarmLogo,
+      description: "Developed an Azure-hosted multi-agent AI assistant and analytics dashboard for Home Plus app data, enabling teams to extract actionable insights from feedback, FAQs, and Adobe Analytics in real time. Built automated insight generation and visualization features with Azure Function Apps, Cosmos DB, MongoDB, and OpenAI, reducing manual analysis time by 80% and enabling faster, data-driven release planning.",
       achievements: [
-        "Developed an Azure-hosted multi-agent AI assistant and analytics dashboard for Home Plus app data, enabling teams to extract actionable insights from feedback, FAQs, and Adobe Analytics in real time.",
-        "Built automated insight generation and visualization features with Azure Function Apps, Cosmos DB, MongoDB, and OpenAI, reducing manual analysis time by 80% and enabling faster, data-driven release planning."
+        "Developed an Azure-hosted multi-agent AI assistant and analytics dashboard for Home Plus app data, enabling teams to extract actionable insights from feedback, FAQs, and Adobe Analytics in real time",
+        "Built automated insight generation and visualization features with Azure Function Apps, Cosmos DB, MongoDB, and OpenAI, reducing manual analysis time by 80% and enabling faster, data-driven release planning"
       ]
     },
     {
+      title: "Software Engineer Intern",
       company: "State Farm",
-      position: "Software Engineer Intern",
-      duration: "May 2024 – May 2025",
+      period: "May 2024 – May 2025",
       location: "Remote",
-      logo: "./src/assets/statefarm-logo.png",
+      logo: statefarmLogo,
+      description: "Built and deployed a scalable AWS-based data profiling tool (Lambda, Glue, DynamoDB, S3, API Gateway, Athena) using Terraform and GitLab CI/CD, reducing enterprise-wide dataset profiling times from hours to seconds for 200+ data professionals. Developed reusable Python utilities for SageMaker notebooks, published to JFrog Artifactory with example notebooks, improving onboarding speed by 30% and boosting adoption of the Model Management Toolkit (MMT).",
       achievements: [
         "Built and deployed a scalable AWS-based data profiling tool (Lambda, Glue, DynamoDB, S3, API Gateway, Athena) using Terraform and GitLab CI/CD, reducing enterprise-wide dataset profiling times from hours to seconds for 200+ data professionals",
         "Developed reusable Python utilities for SageMaker notebooks, published to JFrog Artifactory with example notebooks, improving onboarding speed by 30% and boosting adoption of the Model Management Toolkit (MMT)",
@@ -28,47 +36,50 @@ const ExperienceSection = ({ registerSection }) => {
       ]
     },
     {
+      title: "Research Assistant",
       company: "Texas A&M Autonomous Systems Laboratory",
-      position: "Research Assistant",
-      duration: "Sep 2023 – May 2024",
+      period: "Sep 2023 – May 2024",
       location: "College Station, TX",
-      logo: "./src/assets/tamu-logo.png",
+      logo: tamuLogo,
+      description: "Developed YOLOv5-based computer vision systems in Python and C++ with ROS, enabling real-time traffic sign detection with 95%+ accuracy across variable lighting and weather conditions. Worked with GM engineers to develop and deploy perception models for autonomous navigation in complex environments.",
       achievements: [
         "Developed YOLOv5-based computer vision systems in Python and C++ with ROS, enabling real-time traffic sign detection with 95%+ accuracy across variable lighting and weather conditions",
         "Worked with GM engineers to develop and deploy perception models for autonomous navigation in complex environments"
       ]
     },
     {
+      title: "Software Engineer Intern",
       company: "USAA",
-      position: "Software Engineer Intern",
-      duration: "May 2023 – Aug 2023",
+      period: "May 2023 – Aug 2023",
       location: "San Antonio, TX",
-      logo: "./src/assets/usaa-lgoo.png",
+      logo: usaaLogo,
+      description: "Integrated Terraform Rover into GitLab pipelines, accelerating plan approvals by 20% and streamlining infrastructure reviews. Built a serverless AWS Lambda pipeline to automate CSV-to-JSON conversion with validation and enrichment, reducing manual processing time by 70% and enabling faster ingestion of large datasets.",
       achievements: [
         "Integrated Terraform Rover into GitLab pipelines, accelerating plan approvals by 20% and streamlining infrastructure reviews",
         "Built a serverless AWS Lambda pipeline to automate CSV-to-JSON conversion with validation and enrichment, reducing manual processing time by 70% and enabling faster ingestion of large datasets"
       ]
     },
     {
+      title: "Software Engineer Intern",
       company: "Cicero",
-      position: "Software Engineer Intern",
-      duration: "Oct 2022 – May 2023",
+      period: "Oct 2022 – May 2023",
       location: "Remote",
-      logo: "./src/assets/cicero.jpg",
+      logo: ciceroLogo,
+      description: "Led the migration to the Remix framework with server-side rendering, reducing content load times by 30%, improving onboarding speed by 25%, and resolving key UI issues to boost platform stability. Transformed the Cicero web app into a cross-platform app using Capacitor, improving access and user experience across devices.",
       achievements: [
         "Led the migration to the Remix framework with server-side rendering, reducing content load times by 30%, improving onboarding speed by 25%, and resolving key UI issues to boost platform stability",
         "Transformed the Cicero web app into a cross-platform app using Capacitor, improving access and user experience across devices"
       ]
     },
     {
+      title: "AWS Certified Cloud Practitioner",
       company: "AWS",
-      position: "AWS Certified Cloud Practitioner",
-      duration: "August 2022",
+      period: "August 2022",
       location: "Certification",
-      logo: "./src/assets/aws-logo.png",
+      logo: awsLogo,
+      description: "Achieved AWS Certified Cloud Practitioner certification, demonstrating foundational knowledge of AWS Cloud concepts, services, security, architecture, pricing, and support.",
       achievements: [
-        "Earned AWS Certified Cloud Practitioner certification demonstrating foundational knowledge of AWS Cloud concepts, services, security, architecture, pricing, and support",
-        "Validated understanding of AWS Cloud fundamentals including core services, security best practices, and cloud architecture principles"
+        "Achieved AWS Certified Cloud Practitioner certification, demonstrating foundational knowledge of AWS Cloud concepts, services, security, architecture, pricing, and support"
       ],
       link: "https://www.credly.com/badges/c837d3fa-c93b-4375-b34f-3fe623268a8a/linked_in_profile"
     }
@@ -151,19 +162,21 @@ const ExperienceSection = ({ registerSection }) => {
                         {/* Company Info */}
                         <div className="flex-1">
                           <h3 className="text-2xl font-light text-white group-hover:text-gray-100 transition-colors duration-500 mb-2">
-                            {exp.position}
+                            {exp.title}
                           </h3>
                           <h4 className="text-xl font-medium text-gray-300 group-hover:text-white transition-colors duration-500 mb-1">
                             {exp.company}
                           </h4>
                           <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors duration-500 text-sm">
+                            <span>{exp.period}</span>
+                            <MapPin className="w-4 h-4 ml-2 text-gray-400" />
                             <span>{exp.location}</span>
                           </div>
                         </div>
                         
                         {/* Duration Badge */}
                         <span className="px-4 py-2 bg-white/10 border border-white/20 text-gray-300 rounded-full text-sm font-medium backdrop-blur-sm group-hover:bg-white/20 group-hover:text-white transition-all duration-500 self-start">
-                          {exp.duration}
+                          {exp.period}
                         </span>
                       </div>
                       
@@ -186,9 +199,7 @@ const ExperienceSection = ({ registerSection }) => {
                             className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border border-orange-500/30 text-orange-300 rounded-lg backdrop-blur-sm hover:bg-gradient-to-r hover:from-orange-500/30 hover:to-yellow-500/30 hover:text-white hover:scale-105 transition-all duration-500 text-sm font-medium"
                           >
                             View Credential
-                            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
+                            <ExternalLink className="w-4 h-4 ml-2" />
                           </a>
                         </div>
                       )}

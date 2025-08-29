@@ -1,4 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Code, Database, Cloud, Brain, Shield, Smartphone } from 'lucide-react';
+import about1Image from '../assets/about1.jpeg';
+import about2Image from '../assets/about2.jpeg';
+import about3Image from '../assets/about3.jpeg';
 
 const AboutSection = ({ registerSection }) => {
   const sectionRef = useRef(null);
@@ -43,6 +47,12 @@ const AboutSection = ({ registerSection }) => {
     }
   ];
 
+  const aboutImages = [
+    { src: about1Image, alt: "Amaan Chaudhry - Professional", delay: 300 },
+    { src: about2Image, alt: "Amaan Chaudhry - Lifestyle", delay: 500 },
+    { src: about3Image, alt: "Amaan Chaudhry - Activities", delay: 700 }
+  ];
+
   useEffect(() => {
     if (sectionRef.current) {
       registerSection('about', sectionRef.current);
@@ -84,15 +94,44 @@ const AboutSection = ({ registerSection }) => {
         
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="animate-fade-in-left order-2 lg:order-1">
-            {/* Profile Picture */}
-            <div className="flex justify-center mb-8 animate-fade-in-left delay-300">
-              <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-600 hover:scale-110 hover:shadow-xl hover:shadow-white/10 transition-all duration-500 cursor-pointer group">
-                <img 
-                  src="./src/assets/profile.jpg" 
-                  alt="Amaan Chaudhry" 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
+            {/* Image Gallery */}
+            <div className="relative">
+              {/* Main Large Image */}
+              <div className="mb-6 animate-fade-in-left delay-300">
+                <div className="w-full h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-600 hover:scale-105 hover:shadow-xl hover:shadow-white/10 transition-all duration-500 cursor-pointer group">
+                  <img 
+                    src={about1Image} 
+                    alt="Amaan Chaudhry - Professional" 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
               </div>
+              
+              {/* Two Smaller Images Side by Side */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="animate-fade-in-left delay-500">
+                  <div className="w-full h-48 rounded-xl overflow-hidden shadow-xl border-2 border-gray-600 hover:scale-105 hover:shadow-lg hover:shadow-white/10 transition-all duration-500 cursor-pointer group">
+                    <img 
+                      src={about2Image} 
+                      alt="Amaan Chaudhry - Lifestyle" 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                </div>
+                <div className="animate-fade-in-left delay-700">
+                  <div className="w-full h-48 rounded-xl overflow-hidden shadow-xl border-2 border-gray-600 hover:scale-105 hover:shadow-lg hover:shadow-white/10 transition-all duration-500 cursor-pointer group">
+                    <img 
+                      src={about3Image} 
+                      alt="Amaan Chaudhry - Activities" 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              {/* Decorative Elements */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-60 animate-pulse"></div>
+              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full opacity-60 animate-pulse delay-1000"></div>
             </div>
           </div>
           

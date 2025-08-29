@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ChevronDown, ArrowRight } from 'lucide-react';
+import profileImage from '../assets/profile.jpg';
 
-const HomeSection = ({ scrollToSection, registerSection }) => {
+const HomeSection = ({ registerSection, scrollToSection }) => {
   const sectionRef = useRef(null);
   const [scrollY, setScrollY] = useState(0);
 
@@ -53,7 +54,7 @@ const HomeSection = ({ scrollToSection, registerSection }) => {
           <div className="mb-8 relative">
             <div className="w-36 h-36 mx-auto rounded-full overflow-hidden shadow-2xl animate-scale-in delay-200 border-4 border-gray-600 hover:scale-110 hover:shadow-xl hover:shadow-white/10 transition-all duration-500 cursor-pointer group">
               <img 
-                src="./src/assets/profile.jpg" 
+                src={profileImage} 
                 alt="Amaan Chaudhry" 
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -70,7 +71,7 @@ const HomeSection = ({ scrollToSection, registerSection }) => {
           {/* Enhanced Subtitle with blur-in effect */}
           <div className="mb-12">
             <p className="text-xl md:text-2xl text-gray-400 font-light animate-blur-in delay-700 hover:text-gray-300 transition-colors duration-500 cursor-default">
-              Software Engineer & Tech Enthusiast
+              Software Engineer & Tech Enthusiast 💡
             </p>
           </div>
 
@@ -93,7 +94,7 @@ const HomeSection = ({ scrollToSection, registerSection }) => {
           {/* Call-to-Action Message */}
           <div className="mb-12 animate-fade-in-up delay-1100">
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed">
-              Ready to build something amazing? Let's connect and create software that transforms your vision into reality.
+              Ready to build something amazing? Let's connect and create software that transforms your vision into reality 🧑‍💻.
             </p>
           </div>
 

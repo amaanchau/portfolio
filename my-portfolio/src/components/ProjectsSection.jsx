@@ -1,5 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Github, ExternalLink, Play, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
+import aggieaiImage from '../assets/aggieai.png';
+import revsImage from '../assets/revs.png';
+import studyImage from '../assets/study.png';
+import groupflyImage from '../assets/groupfly.png';
+import stockImage from '../assets/stock.png';
+import styleguideImage from '../assets/styleguide.png';
+import portfolioImage from '../assets/portfolio.png';
+import greatsmilesImage from '../assets/greatsmiles.png';
 
 const ProjectsSection = ({ registerSection }) => {
   const sectionRef = useRef(null);
@@ -7,8 +15,24 @@ const ProjectsSection = ({ registerSection }) => {
   const [currentProject, setCurrentProject] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [slideDirection, setSlideDirection] = useState('right');
+  const [expandedTech, setExpandedTech] = useState(false); // New state for expanded tech
   
   const projects = [
+    {
+      title: "Great Smiles - AI Dental Assistant",
+      subtitle: "Multi-Agent AI System for Patient Intake Automation",
+      description: [
+        "Architected AI dental agent using FastAPI, OpenAI Whisper, ElevenLabs TTS, and Twilio with LangGraph state management to automate patient calls intake through multi-agent flows",
+        "Built React.js patient call information dashboard and leveraged Supabase to provide Google OAuth authentication and role-based access control"
+      ],
+      tech: ["FastAPI", "OpenAI Whisper", "ElevenLabs TTS", "Twilio", "LangGraph", "React.js", "Supabase", "Google OAuth"],
+      image: greatsmilesImage,
+      period: "June 2025 – Aug 2025",
+      date: "2025",
+      website: null,
+      github: null,
+      demo: null
+    },
     {
       title: "Aggie AI - Course Selection Platform",
       subtitle: "AI-Powered Analytics Platform",
@@ -18,7 +42,7 @@ const ProjectsSection = ({ registerSection }) => {
         "Developed a Python pipeline to automate academic data extraction from PDFs and scrape professor reviews, integrating results into an optimized database schema"
       ],
       tech: ["Next.js", "PostgreSQL", "Python", "RAG AI", "Data Analytics"],
-      image: "./src/assets/aggieai.png",
+      image: aggieaiImage,
       period: "Feb 2025 – May 2025",
       date: "2025",
       website: "https://aggieai.us",
@@ -34,7 +58,7 @@ const ProjectsSection = ({ registerSection }) => {
         "Ensured responsive, accessible design for diverse user needs with comprehensive testing and deployment automation"
       ],
       tech: ["Next.js", "AWS", "PostgreSQL", "Jest", "Playwright", "CI/CD"],
-      image: "./src/assets/revs.png",
+      image: revsImage,
       period: "Jan 2024 – May 2024",
       date: "2024",
       website: "https://docs.google.com/presentation/d/1inivabh33x17DMVmfXHaGdGB8AjjtqSWp3B4wi9qsHQ/edit#slide=id.g2d107010e5a_0_51",
@@ -50,7 +74,7 @@ const ProjectsSection = ({ registerSection }) => {
         "Developed Python scripts with OpenCV for gaze detection, enabling the system to detect user distractions, such as phone usage"
       ],
       tech: ["Raspberry Pi", "Python", "OpenCV", "Hardware", "Computer Vision"],
-      image: "./src/assets/study.png",
+      image: studyImage,
       period: "Jan 2024 – May 2024",
       date: "2024",
       website: null,
@@ -67,7 +91,7 @@ const ProjectsSection = ({ registerSection }) => {
         "Ensuring secure user authentication through OAuth API on Firebase and orchestrating deployment for seamless internet access"
       ],
       tech: ["HTML", "CSS", "Tailwind", "Firebase", "AWS", "Amadeus API"],
-      image: "./src/assets/groupfly.png",
+      image: groupflyImage,
       period: "Mar 2023 – Present",
       date: "2023-2025",
       website: null,
@@ -83,7 +107,7 @@ const ProjectsSection = ({ registerSection }) => {
         "Successfully deployed the interactive Python Streamlit app on AWS EC2 and Route53, ensuring seamless online access for users"
       ],
       tech: ["Python", "LSTM", "Streamlit", "Pandas", "NumPy", "AWS"],
-      image: "./src/assets/stock.png",
+      image: stockImage,
       period: "Sep 2022 – Jan 2023",
       date: "2022-2023",
       website: "http://stock-predictor.amaanchau.com/",
@@ -100,7 +124,7 @@ const ProjectsSection = ({ registerSection }) => {
         "Built the app using a React frontend, Flask for API development, and a Python backend"
       ],
       tech: ["React", "Flask", "Python", "Accessibility", "LMS Daltonization"],
-      image: "./src/assets/styleguide.png",
+      image: styleguideImage,
       period: "Jul 2024",
       date: "2024",
       website: null,
@@ -116,7 +140,7 @@ const ProjectsSection = ({ registerSection }) => {
         "Intuitive user experience with optimized performance and accessibility across all devices"
       ],
       tech: ["React", "Tailwind CSS", "JavaScript", "Vite", "Responsive Design"],
-      image: "./src/assets/portfolio.png",
+      image: portfolioImage,
       period: "Aug 2025",
       date: "2025",
       website: "https://amaan.com",
@@ -144,6 +168,7 @@ const ProjectsSection = ({ registerSection }) => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setSlideDirection('right');
+    setExpandedTech(false); // Reset expanded state
     setTimeout(() => {
       setCurrentProject((prev) => (prev + 1) % projects.length);
       setIsTransitioning(false);
@@ -154,6 +179,7 @@ const ProjectsSection = ({ registerSection }) => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setSlideDirection('left');
+    setExpandedTech(false); // Reset expanded state
     setTimeout(() => {
       setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
       setIsTransitioning(false);
@@ -164,6 +190,7 @@ const ProjectsSection = ({ registerSection }) => {
     if (isTransitioning || index === currentProject) return;
     setIsTransitioning(true);
     setSlideDirection(index > currentProject ? 'right' : 'left');
+    setExpandedTech(false); // Reset expanded state
     setTimeout(() => {
       setCurrentProject(index);
       setIsTransitioning(false);
@@ -260,7 +287,7 @@ const ProjectsSection = ({ registerSection }) => {
                 <div className={`flex flex-wrap gap-2 mb-6 transition-all duration-500 delay-300 ${
                   isTransitioning ? 'opacity-0 transform translate-y-2' : 'opacity-100 transform translate-y-0'
                 }`}>
-                  {projects[currentProject].tech.slice(0, 4).map((tech, index) => (
+                  {(expandedTech ? projects[currentProject].tech : projects[currentProject].tech.slice(0, 4)).map((tech, index) => (
                     <span 
                       key={tech}
                       className={`px-2 py-1 bg-white/10 border border-white/20 text-gray-300 rounded-full text-xs backdrop-blur-sm hover:bg-white/20 hover:text-white hover:scale-110 transition-all duration-500 cursor-pointer ${
@@ -271,12 +298,25 @@ const ProjectsSection = ({ registerSection }) => {
                       {tech}
                     </span>
                   ))}
-                  {projects[currentProject].tech.length > 4 && (
-                    <span className={`px-2 py-1 bg-white/10 border border-white/20 text-gray-300 rounded-full text-xs backdrop-blur-sm transition-all duration-500 ${
-                      isTransitioning ? 'transform scale-95' : 'transform scale-100'
-                    }`}>
+                  {projects[currentProject].tech.length > 4 && !expandedTech && (
+                    <button
+                      onClick={() => setExpandedTech(true)}
+                      className={`px-2 py-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 text-gray-300 rounded-full text-xs backdrop-blur-sm hover:bg-gradient-to-r hover:from-purple-500/30 hover:to-pink-500/30 hover:text-white hover:scale-110 transition-all duration-500 cursor-pointer ${
+                        isTransitioning ? 'transform scale-95' : 'transform scale-100'
+                      }`}
+                    >
                       +{projects[currentProject].tech.length - 4} more
-                    </span>
+                    </button>
+                  )}
+                  {expandedTech && (
+                    <button
+                      onClick={() => setExpandedTech(false)}
+                      className={`px-2 py-1 bg-gradient-to-r from-gray-500/20 to-slate-500/20 border border-gray-500/30 text-gray-300 rounded-full text-xs backdrop-blur-sm hover:bg-gradient-to-r hover:from-gray-500/30 hover:to-slate-500/30 hover:text-white hover:scale-110 transition-all duration-500 cursor-pointer ${
+                        isTransitioning ? 'transform scale-95' : 'transform scale-100'
+                      }`}
+                    >
+                      Show less
+                    </button>
                   )}
                 </div>
                 

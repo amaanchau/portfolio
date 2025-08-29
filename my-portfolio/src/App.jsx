@@ -200,7 +200,7 @@ function App() {
         setIsMobileMenuOpen={setIsMobileMenuOpen}
       />
       
-      <HomeSection registerSection={registerSection} />
+      <HomeSection registerSection={registerSection} scrollToSection={scrollToSection} />
       <AboutSection registerSection={registerSection} />
       <EducationSection registerSection={registerSection} />
       <ExperienceSection registerSection={registerSection} />
