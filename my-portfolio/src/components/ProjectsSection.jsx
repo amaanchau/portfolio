@@ -143,8 +143,8 @@ const ProjectsSection = ({ registerSection }) => {
       image: portfolioImage,
       period: "Aug 2025",
       date: "2025",
-      website: "https://amaan.com",
-      github: null,
+      website: "https://amaanchau.com",
+      github: "https://github.com/amaanchau/portfolio",
       demo: null
     }
   ];
