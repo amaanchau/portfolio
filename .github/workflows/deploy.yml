@@ -15,6 +15,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18"
+          cache: "npm"
+          cache-dependency-path: my-portfolio/package-lock.json
+
+      - name: Change to my-portfolio directory
+        run: cd my-portfolio
 
       - name: Install dependencies
         run: npm install
@@ -30,7 +35,7 @@ jobs:
           aws-region: us-east-1 # Change to your AWS region
 
       - name: Deploy to S3
-        run: aws s3 sync ./dist/ s3://amaanchau.com --delete
+        run: aws s3 sync dist/ s3://amaanchau.com --delete
 
       - name: Invalidate CloudFront
         run: aws cloudfront create-invalidation --distribution-id E3RLV47IXJTOWX --paths "/*"
